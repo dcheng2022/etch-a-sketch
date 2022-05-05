@@ -1,0 +1,15 @@
+/* Convert container divs into flex containers */
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.container div {
+    flex: 1 1 auto;
+    min-height: 50px;
+    border: 10px dotted red;
+}
+
+.hover-active {
+    background-color: black;
+}
