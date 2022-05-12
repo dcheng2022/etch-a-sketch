@@ -13,7 +13,7 @@ body {
 
 .container div {
     flex: 1 1 auto;
-    border: 10px dotted red;
+    border: 5px solid red;
 }
 
 .hover-active {
