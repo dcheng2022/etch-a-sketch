@@ -5,7 +5,7 @@ let rainbow = false;
 const gridContainer = document.querySelector(".grid-container");
 const resizeButton = document.querySelector(".resize-button");
 const rainbowButton = document.querySelector(".rainbow-button");
-const clearButton= document.querySelector(".clear-button");
+const clearButton = document.querySelector(".clear-button");
 resizeButton.addEventListener("click", sizePrompt);
 clearButton.addEventListener("click", clearGrid);
 rainbowButton.addEventListener("click", () => rainbow = !rainbow);
@@ -15,7 +15,7 @@ function sizePrompt() {
     resizeGrid(size);
 }
 
-function resizeGrid(size=16) {
+function resizeGrid(size = 16) {
 
     const containerList = document.querySelectorAll(".container");
     for (const container of containerList) {
@@ -28,12 +28,12 @@ function resizeGrid(size=16) {
         tempRow.setAttribute("class", `row-${i} container`);
         gridContainer.appendChild(tempRow);
         let j = 1;
-            while (j <= size) {
+        while (j <= size) {
             let tempDiv = document.createElement("div");
             tempDiv.addEventListener("mouseover", hoverChange);
             tempRow.appendChild(tempDiv);
             j++
-            }
+        }
         i++;
     }
 }
@@ -44,7 +44,15 @@ function hoverChange(e) {
     // if-else to check if colored option is toggled
     const tempDiv = e.target;
     if (rainbow) {
-        tempDiv.style["background-color"] = `rgb(${Math.floor(Math.random() * 255 + 1)}, ${Math.floor(Math.random() * 255 + 1)}, ${Math.floor(Math.random() * 255 + 1)})`;
+        if (tempDiv.style["background-color"]) {
+            // Replaces all chars not 0 to 9 with '', returns replaced string with decimal
+            const brightnessNum = tempDiv.style.filter.replace(/[^0-9.]/g,'');
+            tempDiv.style.filter = `brightness(${brightnessNum - 0.10})`;
+            console.log(brightnessNum);
+        } else {
+            tempDiv.style["background-color"] = `rgb(${Math.floor(Math.random() * 255 + 1)}, ${Math.floor(Math.random() * 255 + 1)}, ${Math.floor(Math.random() * 255 + 1)})`;
+            tempDiv.style.filter = "brightness(1)";
+        }
     } else {
         tempDiv.style["background-color"] = "black";
     }
