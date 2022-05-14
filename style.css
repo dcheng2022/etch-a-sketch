@@ -25,7 +25,3 @@ body {
     flex: 1 1 auto;
     border: 1px solid red;
 }
-
-.hover-active {
-    background-color: black;
-}

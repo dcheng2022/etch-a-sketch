@@ -41,13 +41,13 @@ function hoverChange(e) {
     // if-else statement, if class toggled then darken, if not generate random numbers 
     // if-else to check if colored option is toggled
     const tempDiv = e.target;
-    tempDiv.classList.add("hover-active");
+    tempDiv.style["background-color"] = "rgb(0, 0, 0)";
 }
 
 function clearGrid() {
     const tempDivList = document.querySelectorAll(".container div");
     for (const tempDiv of tempDivList) {
-        tempDiv.classList.remove("hover-active");
+        tempDiv.removeAttribute("style");
     }
 }
 
