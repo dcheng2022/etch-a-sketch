@@ -13,6 +13,7 @@ body {
 
 .container div {
     flex: 1 1 auto;
+    aspect-ratio: 1/1;
     border: 5px solid red;
 }
 
