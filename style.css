@@ -1,5 +1,9 @@
 /* Convert container divs into flex containers */
 body {
+    margin: 0;
+}
+
+.grid-container {
     display: flex;
     flex-direction: column;
     max-height: 100vh;
