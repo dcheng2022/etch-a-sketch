@@ -48,7 +48,6 @@ function hoverChange(e) {
             // Replaces all chars not 0 to 9 with '', returns replaced string with decimal
             const brightnessNum = tempDiv.style.filter.replace(/[^0-9.]/g,'');
             tempDiv.style.filter = `brightness(${brightnessNum - 0.10})`;
-            console.log(brightnessNum);
         } else {
             tempDiv.style["background-color"] = `rgb(${Math.floor(Math.random() * 255 + 1)}, ${Math.floor(Math.random() * 255 + 1)}, ${Math.floor(Math.random() * 255 + 1)})`;
             tempDiv.style.filter = "brightness(1)";
