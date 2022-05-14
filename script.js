@@ -1,17 +1,29 @@
 // NodeList that selects all div containers 
 // for node of NodeList... loop, create and append 16 divs per node
 // Create 16x16 grid of square divs and append to containers
-// Future: Also add event listener for hover 
-const containerList = document.querySelectorAll(".container");
+const gridContainer = document.querySelector(".grid-container");
+const resizeButton = document.querySelector(".resize-button");
+resizeButton.addEventListener("click", resizeGrid);
 
-for (container of containerList) {
-    let i = 0;
-    while (i < 16) {
-        let tempDiv = document.createElement("div");
-        tempDiv.addEventListener("mouseover", hoverChange);
-        container.appendChild(tempDiv);
+function resizeGrid(e) {
+    // also need to make 16x16 grid the initial size, use if-else and cal resizeGrid at end of script
+    // when resizing, must either add or remove grids necessary for target size or remove all and start from 0
+    const size = parseInt(prompt("Please enter desired number of rows or columns up to a maximum of 100", "16"));
+
+    let i = 1;
+    while (i <= size) {
+        let tempRow = document.createElement("div");
+        tempRow.setAttribute("class", `row-${i} container`);
+        gridContainer.appendChild(tempRow);
+        let j = 1;
+            while (j <= size) {
+            let tempDiv = document.createElement("div");
+            tempDiv.addEventListener("mouseover", hoverChange);
+            tempRow.appendChild(tempDiv);
+            j++
+            }
         i++;
-    }    
+    }
 }
 
 function hoverChange(e) {
