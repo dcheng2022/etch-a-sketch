@@ -11,7 +11,12 @@ function sizePrompt() {
 }
 
 function resizeGrid(size=16) {
-    // when resizing, must either add or remove grids necessary for target size or remove all and start from 0
+    
+    const containerList = document.querySelectorAll(".container");
+    for (const container of containerList) {
+        container.remove();
+    }
+
     let i = 1;
     while (i <= size) {
         let tempRow = document.createElement("div");
