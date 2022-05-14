@@ -3,13 +3,15 @@
 // Create 16x16 grid of square divs and append to containers
 const gridContainer = document.querySelector(".grid-container");
 const resizeButton = document.querySelector(".resize-button");
-resizeButton.addEventListener("click", resizeGrid);
+resizeButton.addEventListener("click", sizePrompt);
 
-function resizeGrid(e) {
-    // also need to make 16x16 grid the initial size, use if-else and cal resizeGrid at end of script
-    // when resizing, must either add or remove grids necessary for target size or remove all and start from 0
+function sizePrompt() {
     const size = parseInt(prompt("Please enter desired number of rows or columns up to a maximum of 100", "16"));
+    resizeGrid(size);
+}
 
+function resizeGrid(size=16) {
+    // when resizing, must either add or remove grids necessary for target size or remove all and start from 0
     let i = 1;
     while (i <= size) {
         let tempRow = document.createElement("div");
@@ -30,3 +32,5 @@ function hoverChange(e) {
     const tempDiv = e.target;
     tempDiv.classList.toggle("hover-active");
 }
+
+resizeGrid();
