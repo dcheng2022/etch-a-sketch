@@ -1,6 +1,3 @@
-// NodeList that selects all div containers 
-// for node of NodeList... loop, create and append 16 divs per node
-// Create 16x16 grid of square divs and append to containers
 let rainbow = false;
 const gridContainer = document.querySelector(".grid-container");
 const resizeButton = document.querySelector(".resize-button");
@@ -39,9 +36,6 @@ function resizeGrid(size = 16) {
 }
 
 function hoverChange(e) {
-    //TODO: change toggle to add, then add clear button option
-    // if-else statement, if class toggled then darken, if not generate random numbers 
-    // if-else to check if colored option is toggled
     const tempDiv = e.target;
     if (rainbow) {
         if (tempDiv.style["background-color"]) {
