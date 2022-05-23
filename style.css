@@ -23,7 +23,7 @@ body {
 
 .container div {
     flex: 1 1 auto;
-    border: 1px solid red;
+    border: 1px solid black;
 }
 
 .button-container {
